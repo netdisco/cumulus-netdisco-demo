@@ -1,0 +1,20 @@
+- hosts: network
+  become: yes
+  tasks:
+    - name: Configure SNMP service on all network devices
+      nclu:
+        atomic: true
+        description: "Ansible - enable SNMP service"
+        commands:
+          - add snmp-server listening-address all
+          - add snmp-server readonly-community public access any oid .1
+          - add snmp-server system-location {{ group_names[0] }}
+          - add snmp-server system-name {{ ansible_hostname }}
+    - name: update lldpd default args
+      copy: src=source/etc/default/lldpd dest=/etc/default/     
+    - name: enable snmpd
+      command: systemctl enable snmpd.service
+    - name: start snmpd
+      command: systemctl start snmpd.service
+    - name: restart lddpd
+      command: systemctl restart lldpd.service

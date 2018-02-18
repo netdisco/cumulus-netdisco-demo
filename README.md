@@ -20,8 +20,10 @@ configuration to update all switches to enable SNMP and amend LLDP config:
 
 # Deploy Netdisco from Docker
 
-Finally you can reboot the oob-mgmt-server node to run Netdisco backend
-connected to a database server on your worktation. See the sample Vagrantfile
+Finally you can amend the oob-mgmt-server node to run a Netdisco backend docker container
+connected to a database server on your worktation.
+
+See the sample Vagrantfile
 included, which can be copied to `~/.vagrant.d/` before destorying and
 restarting the oob-mgmt-server.
 

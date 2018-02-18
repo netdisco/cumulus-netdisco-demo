@@ -14,7 +14,9 @@ MLAG), and four servers dual-connected to the leaf switches.
 # Update SNMP and LLDP config
 
 Then ssh to the oob-mgmt-server node and clone this repo and run the Ansible
-configuration to update all switches to enable SNMP and amend LLDP config.
+configuration to update all switches to enable SNMP and amend LLDP config:
+
+    ansible-playbook deploy.yml
 
 # Deploy Netdisco from Docker
 

@@ -57,7 +57,8 @@ The Netdisco configuration is in `./environments` as usual.
 
 # Caveats
 
-You will need to run the web frontend on your workstation.
+You will need to run the web frontend on your workstation. Obviously, this does
+not share configuration with the backend docker container running on oob-mgm-server.
 
 So far, SNMP::Info is not doing a good job with the Cumulus platform. This
 will not be hard to fix.

@@ -1,3 +1,7 @@
+# IMPORTANT NOTE
+
+This is a work in progress, and probably broken if this note is still in the README.
+
 # Introduction
 
 This repository  is a demo for using Netdisco in a

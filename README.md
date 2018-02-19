@@ -46,6 +46,15 @@ all devices:
     cd cumulus-netdisco-demo
     ansible-playbook deploy.yml
 
+# Access Netdisco Backend
+
+Should you wish to visit the backend docker container:
+
+    vagrant ssh oob-mgmt-server
+    docker exec -it netdisco-backend sh
+
+The Netdisco configuration is in `./environments` as usual.
+
 # Caveats
 
 You will need to run the web frontend on your workstation.

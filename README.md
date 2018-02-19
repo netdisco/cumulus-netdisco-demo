@@ -21,7 +21,7 @@ SSH to the oob-mgmt-server node then enable SNMP and amend LLDP config on
 all devices:
 
     vagrant ssh oob-mgmt-server
-    git clone ttps://github.com/netdisco/cumulus-netdisco-demo.git
+    git clone https://github.com/netdisco/cumulus-netdisco-demo.git
     cd cumulus-netdisco-demo
     ansible-playbook deploy.yml
 

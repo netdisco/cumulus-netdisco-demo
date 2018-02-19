@@ -24,7 +24,7 @@ Finally you can amend the oob-mgmt-server node to run the Netdisco backend docke
 connecting to a database on your worktation.
 
 See the sample Vagrantfile
-included, which can be copied to `~/.vagrant.d/` before destorying and
+included, which can be copied to `~/.vagrant.d/` before destroying and
 restarting the oob-mgmt-server.
 
 You will need to edit the Vagrantfile to change the settings for your

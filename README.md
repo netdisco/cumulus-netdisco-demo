@@ -8,7 +8,7 @@ This repository  is a demo for using Netdisco in a
 
 Start up the MLAG [reference
 topology](https://github.com/CumulusNetworks/cldemo-config-mlag) for Cumulus
-VX, which includes an OOB management server ans switch,
+VX, which includes an OOB management server and switch,
 two spine switches, four leaf switches (in MLAG pairs),
 and four servers dual-connected to the leaf switches.
 

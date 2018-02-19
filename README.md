@@ -8,34 +8,44 @@ This repository  is a demo for using Netdisco in a
 
 You can start up a [reference
 topology](https://github.com/CumulusNetworks/cldemo-config-mlag) for Cumulus
-VX which includes two spine switches, four leaf switches (two pairs running
-MLAG), and four servers dual-connected to the leaf switches.
+VX which includes an OOB management server ans switch,
+two spine switches, four leaf switches (in MLAG pairs),
+and four servers dual-connected to the leaf switches.
 
 # Update SNMP and LLDP config
 
-Then ssh to the oob-mgmt-server node and clone this repo and run the Ansible
-configuration to update all switches to enable SNMP and amend LLDP config:
+SSH to the oob-mgmt-server node then enable SNMP and amend LLDP config on
+all devices:
 
+    vagrant ssh oob-mgmt-server
+    git clone ttps://github.com/netdisco/cumulus-netdisco-demo.git
+    cd cumulus-netdisco-demo
     ansible-playbook deploy.yml
 
 # Deploy Netdisco from Docker
 
-Finally you can amend the oob-mgmt-server node to run the Netdisco backend docker container,
+Finally amend the oob-mgmt-server node to run the Netdisco backend docker container,
 connecting to a database on your worktation.
 
-See the sample Vagrantfile
-included, which can be copied to `~/.vagrant.d/` before destroying and
+See the sample Vagrantfile in this repository, which can be copied to
+`~/.vagrant.d/` before destroying and
 restarting the oob-mgmt-server.
 
-You will need to edit the Vagrantfile to change the settings for your
-database, and possible add others. See the
+    # on your workstation
+    mkdir ~/.vagrant.d
+    cp cumulus-netdisco-demo/vagrant.d/Vagrantfile !$
+    vagrant destroy oob-mgmt-server
+    vagrant up oob-mgmt-server --provision
+
+You will probably need to edit the Vagrantfile to change the settings for your
+database, at least. See the
 [documentation](https://github.com/netdisco/netdisco/wiki/Environment-Variables)
-page for available options. You probably want to leave the DB Host set to
-10.0.2.2 as this is usually what Vagrant assigns as your workstation's NAT.
+page for available options. Leave the DB Host set to
+10.0.2.2 as this is usually what Vagrant assigns to your workstation's NAT.
 
 # Caveats
 
 You will need to run the web frontend on your workstation.
 
 So far, SNMP::Info is not doing a good job with the Cumulus platform. This
-should not be hard to fix.
+will not be hard to fix.

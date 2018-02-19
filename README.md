@@ -15,19 +15,9 @@ and four servers dual-connected to upstream leaf switches.
 You may need to install dependencies on your workstation such as virtualbox
 and Vagrant - the respective websites have click-install packages.
 
-# Update SNMP and LLDP config
-
-SSH to the oob-mgmt-server node then enable SNMP and amend LLDP config on
-all devices:
-
-    vagrant ssh oob-mgmt-server
-    git clone https://github.com/netdisco/cumulus-netdisco-demo.git
-    cd cumulus-netdisco-demo
-    ansible-playbook deploy.yml
-
 # Deploy Netdisco from Docker
 
-Finally amend the oob-mgmt-server node to run the Netdisco backend docker container,
+Amend the oob-mgmt-server node to run the Netdisco backend docker container,
 connecting to a database on your worktation.
 
 See the sample Vagrantfile in this repository, which can be copied to
@@ -45,6 +35,16 @@ database, at least. See the
 [documentation](https://github.com/netdisco/netdisco/wiki/Environment-Variables)
 page for available options. Leave the DB Host set to
 10.0.2.2 as this is usually what Vagrant assigns to your workstation's NAT.
+
+# Update SNMP and LLDP config
+
+SSH to the oob-mgmt-server node then enable SNMP and amend LLDP config on
+all devices:
+
+    vagrant ssh oob-mgmt-server
+    git clone https://github.com/netdisco/cumulus-netdisco-demo.git
+    cd cumulus-netdisco-demo
+    ansible-playbook deploy.yml
 
 # Caveats
 

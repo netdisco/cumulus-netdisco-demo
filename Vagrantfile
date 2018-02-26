@@ -1,22 +1,28 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require './vagrant-provision-reboot-waiter-plugin'
+
+cldemo_vagrantfile = File.expand_path('../cldemo-vagrant/Vagrantfile', __FILE__)
+eval File.read(cldemo_vagrantfile) if File.exists?(cldemo_vagrantfile)
+
 Vagrant.configure("2") do |config|
 
-  cldemo_vagrantfile = File.expand_path('../cldemo-vagrant/Vagrantfile', __FILE__)
-  eval File.read(cldemo_vagrantfile) if File.exists?(cldemo_vagrantfile)
-
   config.vm.define "oob-mgmt-server" do |device|
+    device.vm.provision :reboot_waiter
+    device.vm.synced_folder ".", "/vagrant"
 
     device.vm.provision :ansible_local do |ansible|
-      ansible.provisioning_path = "cldemo-config-mlag"
+      ansible.compatibility_mode = "2.0"
+      ansible.provisioning_path = "/vagrant/cldemo-config-mlag"
       ansible.playbook = "deploy.yml"
       ansible.inventory_path = "ansible-inventory"
       ansible.limit   = "all"
-      ansible.verbose = true
+      #ansible.verbose = true
     end
 
     device.vm.provision :ansible_local do |ansible|
+      ansible.compatibility_mode = "2.0"
       ansible.playbook = "provisioning/playbook.yml"
       ansible.groups = {
         "leaves" => ["leaf01","leaf02","leaf03","leaf04"],
@@ -24,7 +30,7 @@ Vagrant.configure("2") do |config|
         "network:children" => ["leaves","spines"]
       }
       ansible.limit   = "network"
-      ansible.verbose = true
+      #ansible.verbose = true
     end
 
     device.vm.provision :docker do |docker|

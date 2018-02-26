@@ -1,6 +1,8 @@
 [submodule "cldemo-vagrant"]
-	path = cldemo-vagrant
-	url = https://github.com/cumulusnetworks/cldemo-vagrant
+  path = cldemo-vagrant
+  url = https://github.com/cumulusnetworks/cldemo-vagrant
+  ignore = all
 [submodule "cldemo-config-mlag"]
-	path = cldemo-config-mlag
-	url = https://github.com/cumulusnetworks/cldemo-config-mlag
+  path = cldemo-config-mlag
+  url = https://github.com/cumulusnetworks/cldemo-config-mlag
+  ignore = all

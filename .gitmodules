@@ -1,0 +1,6 @@
+[submodule "cldemo-vagrant"]
+	path = cldemo-vagrant
+	url = https://github.com/cumulusnetworks/cldemo-vagrant
+[submodule "cldemo-config-mlag"]
+	path = cldemo-config-mlag
+	url = https://github.com/cumulusnetworks/cldemo-config-mlag

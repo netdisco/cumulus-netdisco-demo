@@ -23,7 +23,7 @@ https://www.virtualbox.org/wiki/Downloads[VirtualBox] and
 https://www.vagrantup.com/downloads.html[Vagrant].
 
 You will need to edit the Vagrantfile, to change the `NETDISCO_DB_NAME` and
-`NETDISCO_DB_USER` for your system. _Do not change ```NETDISCO_DB_HOST```_.
+`NETDISCO_DB_USER` for your system. _Do not change ``NETDISCO_DB_HOST``_.
 
 [[startup]]
 Startup

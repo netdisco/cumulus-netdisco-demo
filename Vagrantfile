@@ -8,7 +8,7 @@ eval File.read(cldemo_vagrantfile) if File.exists?(cldemo_vagrantfile)
 
 Vagrant.configure("2") do |config|
 
-  config.vm.define "oob-mgmt-server" do |device|
+  config.vm.define "oob-mgmt-server", primary: true do |device|
     device.vm.provision :reboot_waiter
     device.vm.synced_folder ".", "/vagrant"
 
@@ -38,7 +38,15 @@ Vagrant.configure("2") do |config|
         args:  "-e NETDISCO_DB_NAME=cumulus -e NETDISCO_DB_USER=oliver -e NETDISCO_DB_HOST=10.0.2.2",
         image: "netdisco/netdisco:latest-backend"
     end
-
   end
+
+  config.vm.define "internet", autostart: false
+  config.vm.define "exit01",   autostart: false
+  config.vm.define "exit02",   autostart: false
+  config.vm.define "edge01",   autostart: false
+
+  # do not start this automatically, so that the network can boot first
+  # otherwise the server will not be able to reach the devices.
+  config.vm.define "oob-mgmt-server", autostart: false
 
 end

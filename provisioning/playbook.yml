@@ -15,6 +15,12 @@
         path: /etc/snmp/snmpd.conf
         regexp: '^sysServices '
         line: 'sysServices 78'
+    - name: copy fixed ieee8023_lag_pp.py
+      copy:
+        src: src/usr/share/snmp/ieee8023_lag_pp.py
+        dest: /usr/share/snmp/ieee8023_lag_pp.py
+        owner: root
+        mode: 0755
     - name: update lldpd default args
       template:
         src: src/etc/default/lldpd.j2

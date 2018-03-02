@@ -36,7 +36,7 @@ git clone --recurse-submodules https://github.com/netdisco/cumulus-netdisco-demo
 cd cumulus-netdisco-demo && vi Vagrantfile
 # edit the DB configuration as mentioned above
 
-vagrant up && vagrant up --provision ssh-mgmt-server
+vagrant up && vagrant up --provision oob-mgmt-server
 ....
 
 [[access-netdisco-backend]]

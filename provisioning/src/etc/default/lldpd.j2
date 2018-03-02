@@ -2,4 +2,4 @@
 # Add "-x" to DAEMON_ARGS to start SNMP subagent
 
 # Enable CDP by default
-DAEMON_ARGS="-c -M 4 -x"
+DAEMON_ARGS="-c -M 4 -x -m {{ ansible_ssh_host }}"

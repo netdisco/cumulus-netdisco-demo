@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-require './vagrant-provision-reboot-waiter-plugin'
+require './lib/reboot-waiter-plugin'
 
 cldemo_vagrantfile = File.expand_path('../cldemo-vagrant/Vagrantfile', __FILE__)
 eval File.read(cldemo_vagrantfile) if File.exists?(cldemo_vagrantfile)
@@ -24,12 +24,8 @@ Vagrant.configure("2") do |config|
     device.vm.provision :ansible_local do |ansible|
       ansible.compatibility_mode = "2.0"
       ansible.playbook = "provisioning/playbook.yml"
-      ansible.groups = {
-        "leaves" => ["leaf01","leaf02","leaf03","leaf04"],
-        "spines" => ["spine01","spine02"],
-        "network:children" => ["leaves","spines"]
-      }
-      ansible.limit   = "network"
+      ansible.inventory_path = "provisioning/ansible-inventory"
+      ansible.limit   = "all"
       #ansible.verbose = true
     end
 

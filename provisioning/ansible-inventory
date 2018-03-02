@@ -1,0 +1,20 @@
+leaf01 ansible_ssh_host=192.168.0.11
+leaf02 ansible_ssh_host=192.168.0.12
+leaf03 ansible_ssh_host=192.168.0.13
+leaf04 ansible_ssh_host=192.168.0.14
+spine01 ansible_ssh_host=192.168.0.21
+spine02 ansible_ssh_host=192.168.0.22
+
+[leaves]
+leaf01
+leaf02
+leaf03
+leaf04
+
+[spines]
+spine01
+spine02
+
+[network:children]
+leaves
+spines

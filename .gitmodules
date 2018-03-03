@@ -4,5 +4,5 @@
   ignore = all
 [submodule "cldemo-config-mlag"]
   path = cldemo-config-mlag
-  url = https://github.com/cumulusnetworks/cldemo-config-mlag
+  url = https://github.com/ollyg/cldemo-config-mlag
   ignore = all

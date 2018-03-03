@@ -12,6 +12,8 @@ Vagrant.configure("2") do |config|
     device.vm.provision :reboot_waiter
     device.vm.synced_folder ".", "/vagrant"
 
+    device.vm.provision :shell , inline: "cp /vagrant/provisioning/ansible.cfg /etc/ansible/"
+
     device.vm.provision :ansible_local do |ansible|
       ansible.compatibility_mode = "2.0"
       ansible.provisioning_path = "/vagrant/cldemo-config-mlag"

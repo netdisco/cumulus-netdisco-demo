@@ -4,6 +4,18 @@ leaf03 ansible_ssh_host=192.168.0.13
 leaf04 ansible_ssh_host=192.168.0.14
 spine01 ansible_ssh_host=192.168.0.21
 spine02 ansible_ssh_host=192.168.0.22
+server01 ansible_ssh_host=192.168.0.31
+server02 ansible_ssh_host=192.168.0.32
+server03 ansible_ssh_host=192.168.0.33
+server04 ansible_ssh_host=192.168.0.34
+
+[left_servers]
+server01
+server02
+
+[right_servers]
+server03
+server04
 
 [leaves]
 leaf01

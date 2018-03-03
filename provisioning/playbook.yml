@@ -31,3 +31,17 @@
       command: systemctl restart snmpd.service
     - name: restart lddpd
       command: systemctl restart lldpd.service
+- hosts: left_servers
+  become: yes
+  tasks:
+    - name: keep server in gateway ARP cache
+      cron:
+        name: prime gateway ARP cache
+        job: "ping -n -c2 -BI uplink 172.16.1.1"
+- hosts: right_servers
+  become: yes
+  tasks:
+    - name: keep server in gateway ARP cache
+      cron:
+        name: prime gateway ARP cache
+        job: "ping -n -c2 -BI uplink 172.16.1.2"

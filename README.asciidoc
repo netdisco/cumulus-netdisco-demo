@@ -10,7 +10,7 @@ The steps below will spin up a https://github.com/CumulusNetworks/cldemo-vagrant
 routers (in MLAG pairs), four servers dual-connected to upstream leaf
 switches, an OOB management switch, and an OOB server:
 
-image::https://raw.githubusercontent.com/CumulusNetworks/cldemo-vagrant/master/cldemo_topology.png[Cumulus MLAG Topology]
+image::https://raw.githubusercontent.com/CumulusNetworks/cldemo-config-mlag/master/bgp-unnumbered.png[Cumulus MLAG Topology]
 
 On the OOB server will be running an instance of Netdisco Backend in a Docker
 container. This is configured to connect to PostgreSQL running on your host

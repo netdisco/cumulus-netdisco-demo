@@ -8,7 +8,7 @@ https://github.com/CumulusNetworks/cldemo-vagrant[Network].
 
 The steps below will spin up a https://github.com/CumulusNetworks/cldemo-vagrant[reference network] of: two spine routers, four leaf
 routers (in MLAG pairs), four servers dual-connected to upstream leaf
-switches, an OOB management switch, and an OOB server:
+switches, together with an out-of-band (OOB) management switch and server (not shown):
 
 image::https://raw.githubusercontent.com/CumulusNetworks/cldemo-config-mlag/master/bgp-unnumbered.png[Cumulus MLAG Topology]
 

@@ -31,12 +31,10 @@ Vagrant.configure("2") do |config|
       #ansible.verbose = true
     end
 
-    $hosts = "--add-host server01:172.16.1.101 --add-host server02:172.16.1.102 --add-host server03:172.16.2.101 --add-host server04:172.16.2.102 --add-host spine01:192.168.0.21 --add-host spine02:192.168.0.22 --add-host leaf01:192.168.0.11 --add-host leaf02:192.168.0.12 --add-host leaf03:192.168.0.13 --add-host leaf04:192.168.0.14"
-
-    device.vm.provision :docker do |docker|
-      docker.run "netdisco-backend",
-        args:  "-e NETDISCO_DB_NAME=cumulus -e NETDISCO_DB_USER=oliver -e NETDISCO_DB_HOST=10.0.2.2 #$hosts",
-        image: "netdisco/netdisco:latest-backend"
+    config.vm.provision :shell do |shell|
+      shell.path = "install-netdisco-backend.sh"
+      shell.env = { NETDISCO_DB_NAME: "cumulus", NETDISCO_DB_USER: "oliver" }
+      shell.privileged = false
     end
   end
 

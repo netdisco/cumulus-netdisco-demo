@@ -25,8 +25,8 @@ https://www.virtualbox.org/wiki/Downloads[VirtualBox] and
 https://www.vagrantup.com/downloads.html[Vagrant].
 
 You will need to edit the Vagrantfile, to change the `NETDISCO_DB_NAME` and
-`NETDISCO_DB_USER` for your system. _Do not change ``NETDISCO_DB_HOST``_. You
-may also add `NETDISCO_DB_PASS` if required.
+`NETDISCO_DB_USER` for your system. You can add `NETDISCO_DB_PASS` if
+required.
 
 [[startup]]
 Startup
@@ -38,18 +38,22 @@ git clone --recurse-submodules https://github.com/netdisco/cumulus-netdisco-demo
 cd cumulus-netdisco-demo && vi Vagrantfile
 # edit the DB configuration as mentioned above
 
-vagrant up && vagrant up --provision oob-mgmt-server
+vagrant up
+
+# wait 10 minutes after this command finishes,
+# starting the network is sloooooooow
+
+vagrant up --provision oob-mgmt-server
 ....
 
 [[access-netdisco-backend]]
 Access Netdisco Backend
 -----------------------
 
-Should you wish to visit the backend docker container:
+Should you wish to visit the oob-mgmt-server host running the backend:
 
 ....
 vagrant ssh
-docker exec -it netdisco-backend sh
 ....
 
 The Netdisco configuration is in `./environments` as usual.

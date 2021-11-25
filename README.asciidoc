@@ -40,7 +40,7 @@ cd cumulus-netdisco-demo && vi Vagrantfile
 
 vagrant up
 
-# wait 10 minutes after this command finishes,
+# now wait for 10 minutes (after "vagrant up" finishes),
 # starting the network is sloooooooow
 
 vagrant up --provision oob-mgmt-server
